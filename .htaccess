@@ -1,0 +1,14 @@
+# Cors
+Header set Access-Control-Allow-Origin "*"
+
+# Headers for app
+Header merge Access-Control-Allow-Headers "Authorization,Accept-Language,Connection,Content-Type,Content-Length,Host,Origin,User-Agent"
+Header merge Access-Control-Allow-Methods "GET,POST,PUT,PATCH,DELETE,OPTIONS"
+
+RewriteEngine On
+#RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+
